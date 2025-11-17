@@ -41,11 +41,10 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/tasksUploads', express.static(path.join(__dirname, 'tasksUploads')));
 
 // Routes
-app.use("/api/tasks", TasksRoutes);
-app.use("/api/tasks/auth", TasksAuthRoutes);
-
+app.use("/tasks", TasksRoutes);
+app.use("/tasks/auth", TasksAuthRoutes);
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/health', (req, res) => {
     res.status(200).json({ 
         status: 'OK', 
         message: 'Task Manager API is running',
